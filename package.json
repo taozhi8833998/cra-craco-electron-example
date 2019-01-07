@@ -32,6 +32,7 @@
     ],
     "devDependencies": {
         "@craco/craco": "^3.2.0",
+        "craco-antd": "^1.9.3",
         "electron": "^3.0.10",
         "electron-builder": "^20.38.2",
         "env-cmd": "^8.0.2",
@@ -42,7 +43,11 @@
         "@types/node": "10.12.12",
         "@types/react": "16.7.13",
         "@types/react-dom": "16.0.11",
+        "antd": "^3.12.1",
+        "apollo-boost": "^0.1.23",
+        "graphql-tag": "^2.10.0",
         "react": "^16.6.3",
+        "react-apollo": "^2.3.3",
         "react-dom": "^16.6.3",
         "react-scripts": "2.1.1",
         "typescript": "3.2.1"
