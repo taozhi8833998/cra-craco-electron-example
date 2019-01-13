@@ -1,0 +1,38 @@
+.userHide{
+  display: none;
+}
+.user{
+  font-size: 16px;
+  display: inline-flex;
+  height: 46px;
+  line-height: 55px;
+  z-index: 1;
+  position: absolute;
+  right: 18px;
+  top: -4px;
+  color: #AFBCC4;
+}
+.user .ant-dropdown-trigger{
+  cursor: pointer;
+}
+.user ul{
+  background: #001529;
+}
+.user .ant-dropdown-menu{
+  background-color: #001529;
+  border-radius: 0px;
+}
+.user .ant-dropdown-menu .ant-dropdown-menu-item, 
+.user .ant-dropdown-menu .ant-dropdown-menu-submenu-title{
+  color: #AFBCC4;
+}
+.user .ant-dropdown-menu-item:hover, 
+.user .ant-dropdown-menu-submenu-title:hover{
+  background-color: #001529;
+  color: #00C1DE;
+}
+.user .anticon-logout,
+.user .anticon-setting,
+.user .ant-dropdown-trigger .anticon-down{
+  margin-right: 5px;
+}

@@ -1,0 +1,38 @@
+.loginCon,
+.registerCon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url(/images/login-bg.jpg) center no-repeat;
+  background-size: cover;
+}
+.loginCon .ant-form{
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 195px);
+  height: 150px;
+  width: 350px;
+  padding: 10px;
+  z-index: 2;
+}
+.loginCon .ant-form-item-children,
+.registerCon .ant-form-item-children{
+  display: flex;
+  justify-content: space-between;
+}
+.loginCon .ant-btn,
+.registerCon .ant-btn{
+  width: 150px;
+}
+
+.registerCon .ant-form{
+  position: absolute;
+  top: calc(50% - 178px);
+  left: calc(50% - 195px);
+  width: 350px;
+  height: 356px;
+  padding: 10px;
+  z-index: 2;
+}
