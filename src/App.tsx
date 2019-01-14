@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Login from './pages/Login'
 import Layouts from './components/Layout'
 import NotFound from './pages/NotFound'
+import Service from './pages/Service'
 import Loading from './pages/Loading'
 import { Store, StoreProvider, ContextStore } from './store'
 
@@ -42,6 +43,12 @@ const routers = [
     path: '/home',
     key: 'home',
     component: Layouts,
+    requireAuth: true
+  },
+  {
+    path: '/home/service',
+    key: 'home_srvice',
+    component: Service,
     requireAuth: true
   }
 ]

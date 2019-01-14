@@ -14,43 +14,23 @@ interface Props {
 
 const menuList = [
   {
-    name: "APP",
+    name: "服务",
     icon: 'user',
-    key: 'app',
+    key: 'service',
     child: [
       {
-        name: "app管理",
-        key: '/home/app'
+        name: "服务管理",
+        key: '/home/service'
       }
     ]
   }, {
-    name: "API",
+    name: "项目",
     icon: 'laptop',
-    key: 'api',
+    key: 'project',
     child: [
       {
-        name: "api管理",
-        key: '/home/api'
-      }
-    ]
-  }, {
-    name: "DataSource",
-    icon: 'notification',
-    key: 'dataSource',
-    child: [
-      {
-        name: "DataSource管理",
-        key: '/home/ds'
-      }
-    ]
-  }, {
-    name: "TestCase",
-    icon: 'user',
-    key: 'testCase',
-    child: [
-      {
-        name: "item7",
-        key: 'item7'
+        name: "项目管理",
+        key: '/home/project'
       }
     ]
   }
@@ -85,11 +65,9 @@ class SiderMenu extends PureComponent<Props, {}> {
         mode='inline'
         // onOpenChange={this.onOpenChange}
         // onClick={this.siderClick}
-        // openKeys={this.props.openKeys}
-        defaultSelectedKeys={['appManager']}
-        defaultOpenKeys={['app']}
+        defaultSelectedKeys={[]}
+        defaultOpenKeys={['service']}
         selectedKeys={[location.pathname]}
-      // selectedKeys={siderSelectedValue === 'createTask' ? ['taskManage'] : [siderSelectedValue]}
       >
         {this.renderMenuItem(menuList)}
       </Menu>

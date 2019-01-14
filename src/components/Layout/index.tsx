@@ -45,7 +45,7 @@ class Layouts extends Component<Props, State> {
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}
           >
-            <SiderMenu onCollapse={this.onCollapse} openKeys={['app']} />
+            <SiderMenu onCollapse={this.onCollapse} openKeys={['service']} />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Content>
