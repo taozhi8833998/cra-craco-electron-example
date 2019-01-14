@@ -2,19 +2,12 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Icon, Menu, Dropdown } from 'antd'
 import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
 import { StoreConsumer, ContextStore } from '../../store'
 import './index.css'
+import { LOGOUT } from '../../queries'
 import { withRouter } from 'react-router-dom'
 
-interface Props{
-}
-
-const LOGOUT = gql`
-  mutation {
-    signOut
-  }
-`
+interface Props{}
 
 @(withRouter as any)
 class User extends Component<Props> {

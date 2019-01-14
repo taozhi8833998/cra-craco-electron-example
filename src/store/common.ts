@@ -1,7 +1,11 @@
+export interface Image {
+  filename: string
+  url: string
+}
 export default class CommonManager {
-  userName: String = ''
+  userName: string = ''
 
-  setUserName(userName: String) {
+  setUserName(userName: string) {
     this.userName = userName
   }
 
@@ -9,7 +13,7 @@ export default class CommonManager {
     return this.userName
   }
 
-  getValueByKeys(keys: String[], originObj: any, defaultValue: any = null) {
-    return keys.reduce((obj: any, key) => (obj && obj[key.toString()] != null) ? obj[key.toString()] : defaultValue, originObj)
+  getValueByKeys(keys: string[], originObj: any, defaultValue: any = null) {
+    return keys.reduce((obj: any, key: string) => (obj && obj[key] != null) ? obj[key] : defaultValue, originObj)
   }
 }

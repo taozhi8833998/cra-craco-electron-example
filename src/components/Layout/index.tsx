@@ -6,6 +6,7 @@ import "./index.css"
 import HeaderMenu from './HeaderMenu'
 import User from '../User'
 import SiderMenu from './SiderMenu'
+import Services from '../../pages/Services'
 
 const { Header, Content, Sider } = Layout
 
@@ -50,8 +51,8 @@ class Layouts extends Component<Props, State> {
           <Layout style={{ padding: '0 24px 24px' }}>
             <Content>
               <Switch>
-                {/* <Route path="/home/app" component={App} />
-                <Route path="/home/api" component={Api} />
+                <Route path="/home/service" component={Services} />
+                {/* <Route path="/home/api" component={Api} />
                 <Route path="/home/ds" component={DataSource} /> */}
               </Switch>
             </Content>

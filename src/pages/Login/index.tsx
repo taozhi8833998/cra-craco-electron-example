@@ -1,25 +1,17 @@
 import * as React from 'react'
 import { Component } from 'react'
 import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
 import { Form, Icon, Input, Button, message } from 'antd'
 import './index.css'
 import { Store, StoreConsumer, ContextStore } from '../../store'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { LOGIN } from '../../queries'
 
 const FormItem = Form.Item
 
 interface Props extends RouteComponentProps<any>{
   form?: any
 }
-
-const LOGIN = gql`
-  mutation Login($name: String!, $password: String!) {
-    signIn(name: $name, password: $password) {
-      name
-    }
-  }
-`
 
 @(withRouter as any)
 class Login extends Component<Props, {}> {
@@ -38,9 +30,10 @@ class Login extends Component<Props, {}> {
           variables: values
         })
         store.commonManager.setUserName(name)
+        form.resetFields()
         this.props.history.push('/home')
       }catch(error) {
-        return message.error(`Login Failed = ${error.message}`, 3)
+        return console.error(`Login Failed = ${error.message}`, 3)
       }
     })
   }

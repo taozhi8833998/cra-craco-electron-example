@@ -1,28 +1,39 @@
 import React, { Component } from 'react'
 import classes from './App.module.css'
-import ApolloClient from "apollo-boost"
 import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Login from './pages/Login'
 import Layouts from './components/Layout'
 import NotFound from './pages/NotFound'
-import Service from './pages/Service'
 import Loading from './pages/Loading'
+import { message as Message } from 'antd'
 import { Store, StoreProvider, ContextStore } from './store'
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
+import { onError } from 'apollo-link-error';
+import { ApolloLink } from 'apollo-link';
 
-// Create the apollo client, with the Apollo caching.
 const apolloClient = new ApolloClient({
-  uri: "http://localhost:8000/graphql",
-  // fetchOptions: {
-  //   credentials: 'include'
-  // },
-  request: async operation => {
-    operation.setContext({
-      fetchOptions: {
-        credentials: 'include'
+  link: ApolloLink.from([
+    onError(({ graphQLErrors, networkError }) => {
+      if (graphQLErrors) graphQLErrors.map(({ message, locations, path }) => {
+          console.log(
+            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+          )
+          Message.error(message, 5)
+        })
+      if (networkError) {
+        console.log(`[Network error]: ${networkError}`)
+        Message.error(`[Network error]: ${ networkError }`, 5)
       }
-    });
-  }
+    }),
+    new HttpLink({
+      uri: 'http://localhost:8000/graphql',
+      credentials: 'include'
+    })
+  ]),
+  cache: new InMemoryCache()
 })
 
 const routers = [
@@ -45,12 +56,6 @@ const routers = [
     component: Layouts,
     requireAuth: true
   },
-  {
-    path: '/home/service',
-    key: 'home_srvice',
-    component: Service,
-    requireAuth: true
-  }
 ]
 
 interface Props {

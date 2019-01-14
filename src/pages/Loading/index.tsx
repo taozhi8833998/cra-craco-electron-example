@@ -3,20 +3,12 @@ import { PureComponent } from 'react'
 import { withRouter, RouteComponentProps } from "react-router-dom"
 import { Spin } from 'antd'
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
-import { Store, StoreConsumer, ContextStore } from '../../store'
+import { StoreConsumer, ContextStore } from '../../store'
+import { USRINFO } from '../../queries'
 import './index.css'
 
 interface Props extends RouteComponentProps<any> {
 }
-
-const USRINFO = gql`
-  query {
-    userInfo {
-      name
-    }
-  }
-`
 
 @(withRouter as any)
 class Loading extends PureComponent<Props, {}> {

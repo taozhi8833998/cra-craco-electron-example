@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { PureComponent } from 'react'
 import { Menu, Icon } from 'antd'
+import CreateService from '../Create/service'
 import "./index.css"
 
 const { SubMenu } = Menu
@@ -13,7 +14,17 @@ interface State {
   collapsed: boolean
 }
 
-const createTypes = ["服务", "项目"]
+const createTypes = [
+  {
+    name: '服务',
+    key: 'service',
+    com: CreateService
+  },
+  // {
+  //   name: '项目',
+  //   key: 'project'
+  // }
+]
 
 class HeaderMenu extends PureComponent<Props, State> {
 
@@ -27,6 +38,9 @@ class HeaderMenu extends PureComponent<Props, State> {
     })
   }
 
+  menuClick = (item: any) => {
+  }
+
   render() {
     return (
       <Menu
@@ -34,15 +48,16 @@ class HeaderMenu extends PureComponent<Props, State> {
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
+        // onClick={this.menuClick}
       >
         <SubMenu className="topSelectMenuItem" title={<span className="submenu-title-wrapper"><Icon type="file-add" />新建</span>}>
           {
-            createTypes.map(item => <Menu.Item key={item}>{item}</Menu.Item>)
+            createTypes.map(item => <Menu.Item key={item.key}><item.com /></Menu.Item>)
           }
         </SubMenu>
         <SubMenu className="topSelectMenuItem" title={<span className="submenu-title-wrapper"><Icon type="file-unknown" />帮助</span>}>
-          <Menu.Item key="Help_Introductory_Tutorial">系统介绍</Menu.Item>
-          <Menu.Item key="Help_Internal_Variables">使用教程</Menu.Item>
+          <Menu.Item key="Help_System">系统介绍</Menu.Item>
+          <Menu.Item key="Help_Tutorial">使用教程</Menu.Item>
         </SubMenu>
       </Menu>
     )

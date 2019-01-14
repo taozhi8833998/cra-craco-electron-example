@@ -23,7 +23,8 @@ const menuList = [
         key: '/home/service'
       }
     ]
-  }, {
+  },
+  {
     name: "项目",
     icon: 'laptop',
     key: 'project',
