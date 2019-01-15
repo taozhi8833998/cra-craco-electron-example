@@ -93,7 +93,7 @@ class ServiceCom extends PureComponent<Props, State> {
 
   refetchQueries = () => {
     return [
-      { query: SERVICE_LIST, variables: { limit: 10, offset: 0 } }
+      { query: SERVICE_LIST, variables: { limit: 100, offset: 0 } }
     ]
   }
 
