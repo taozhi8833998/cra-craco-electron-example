@@ -7,6 +7,7 @@ import HeaderMenu from './HeaderMenu'
 import User from '../User'
 import SiderMenu from './SiderMenu'
 import Services from '../../pages/Services'
+import Projects from '../../pages/Projects'
 
 const { Header, Content, Sider } = Layout
 
@@ -52,8 +53,7 @@ class Layouts extends Component<Props, State> {
             <Content>
               <Switch>
                 <Route path="/home/service" component={Services} />
-                {/* <Route path="/home/api" component={Api} />
-                <Route path="/home/ds" component={DataSource} /> */}
+                <Route path="/home/project" component={Projects} />
               </Switch>
             </Content>
           </Layout>

@@ -1,19 +1,19 @@
 import * as React from 'react'
 import { Component } from 'react'
 import { Input, Modal, Form, message } from 'antd'
+import { FormComponentProps } from 'antd/lib/form/Form'
 import { Mutation } from 'react-apollo'
 import { CREATE_SERVICE, SERVICE_LIST } from '../../queries'
 
-interface Props {
-  form?: any
-  name?: string
+interface Props extends FormComponentProps {
+  name: string
 }
 
 interface State {
   visible: boolean
 }
 
-class ServiceModal extends Component<Props> {
+class ServiceModal extends Component<Props, State> {
 
   state = {
     visible: false
@@ -80,10 +80,10 @@ class ServiceModal extends Component<Props> {
         }
       }
       </Mutation>
-      <div onClick={this.showModal}> {name || '服务'} </div>
+      <div onClick={this.showModal}>{name}</div>
     </React.Fragment>
     )
   }
 }
 
-export default Form.create()(ServiceModal as any)
+export default Form.create<Props>()(ServiceModal)

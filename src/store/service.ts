@@ -1,4 +1,4 @@
-import { Image } from './common'
+
 
 export interface Service {
   name: string,

@@ -64,8 +64,6 @@ class SiderMenu extends PureComponent<Props, {}> {
       <Menu
         theme='dark'
         mode='inline'
-        // onOpenChange={this.onOpenChange}
-        // onClick={this.siderClick}
         defaultSelectedKeys={[]}
         defaultOpenKeys={['service']}
         selectedKeys={[location.pathname]}

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { PureComponent } from 'react'
 import { Menu, Icon } from 'antd'
+import CreateProject from '../Create/project'
 import CreateService from '../Create/service'
 import "./index.css"
 
@@ -20,10 +21,12 @@ const createTypes = [
     key: 'service',
     com: CreateService
   },
-  // {
-  //   name: '项目',
-  //   key: 'project'
-  // }
+  {
+    name: '项目',
+    key: 'project',
+    com: CreateProject
+  },
+
 ]
 
 class HeaderMenu extends PureComponent<Props, State> {
@@ -48,11 +51,10 @@ class HeaderMenu extends PureComponent<Props, State> {
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
-        // onClick={this.menuClick}
       >
         <SubMenu className="topSelectMenuItem" title={<span className="submenu-title-wrapper"><Icon type="file-add" />新建</span>}>
           {
-            createTypes.map(item => <Menu.Item key={item.key}><item.com /></Menu.Item>)
+            createTypes.map(item => <Menu.Item key={item.key}><item.com name={item.name}/></Menu.Item>)
           }
         </SubMenu>
         <SubMenu className="topSelectMenuItem" title={<span className="submenu-title-wrapper"><Icon type="file-unknown" />帮助</span>}>

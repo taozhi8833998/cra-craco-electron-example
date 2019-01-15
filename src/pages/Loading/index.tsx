@@ -13,7 +13,7 @@ interface Props extends RouteComponentProps<any> {
 @(withRouter as any)
 class Loading extends PureComponent<Props, {}> {
 
-  redirect({context, loading, data, error}:{context: ContextStore, loading: Boolean, data: any, error: any}) {
+  redirect({context, loading, data, error}:{context: ContextStore, loading: boolean, data: any, error: any}) {
     if (loading) return
     const { store } = context
     const { history, location } = this.props
