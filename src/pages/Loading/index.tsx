@@ -23,7 +23,7 @@ class Loading extends PureComponent<Props, {}> {
     const name = store.commonManager.getValueByKeys(['userInfo', 'name'], data)
     if (name) {
       store && store.commonManager.setUserName(name)
-      const redirectTo = store.commonManager.getValueByKeys(['state', 'from', 'pathname'], location, '/home')
+      const redirectTo = store.commonManager.getValueByKeys(['state', 'from', 'pathname'], location, '/')
       return history.push(redirectTo)
     }
     return history.push('/login')

@@ -11,7 +11,7 @@ class NotFound extends PureComponent<Props, {}> {
   componentDidMount() {
     setTimeout(
       () => {
-        return this.props.history.push('/home')
+        return this.props.history.push('/')
       },
       1500
     )

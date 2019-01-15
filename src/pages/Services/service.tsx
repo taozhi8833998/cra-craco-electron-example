@@ -21,9 +21,6 @@ class ServiceCom extends PureComponent<Props, State> {
     edit: false
   }
 
-  DESC_LIMIT: number = 100
-  NAME_LIMIT: number = 4
-
   serviceName: string = ''
   serviceDesc: string = ''
 
@@ -53,7 +50,7 @@ class ServiceCom extends PureComponent<Props, State> {
         variables
       })
     } catch(err) {
-      console.error('eror==', err)
+      console.error('error==', err)
     }
   }
 
@@ -66,10 +63,10 @@ class ServiceCom extends PureComponent<Props, State> {
   }
 
   update = (cache: any, { data: { updateService } }: any) => {
-    const { services } = cache.readQuery({ query: SERVICE_LIST, variables: { limit: 10, offset: 0 } })
+    const { services } = cache.readQuery({ query: SERVICE_LIST, variables: { limit: 100, offset: 0 } })
     cache.writeQuery({
       query: SERVICE_LIST,
-      variables: { limit: 10, offset: 0 },
+      variables: { limit: 100, offset: 0 },
       data: { services: services.map((service: Service) => {
         if(service.name === this.props.service.name) {
           if(this.serviceName) service.name = this.serviceName
@@ -90,7 +87,7 @@ class ServiceCom extends PureComponent<Props, State> {
         }
       })
     } catch (err) {
-      console.error('eror==', err)
+      console.error('error==', err)
     }
   }
 

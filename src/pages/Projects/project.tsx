@@ -154,7 +154,8 @@ class ServiceCom extends PureComponent<Props, State> {
           return <Modal
             onOk={this.save(updateProject)}
             onCancel={this.edit}
-            title='创建项目'
+            title='修改项目'
+            confirmLoading={loading}
             visible={this.state.edit}
           >
             {
@@ -185,7 +186,7 @@ class ServiceCom extends PureComponent<Props, State> {
 
   refetchQueries = () => {
     return [
-      { query: PROJECT_LIST, variables: { limit: 10, offset: 0 } },
+      { query: PROJECT_LIST, variables: { limit: 100, offset: 0 } },
       {
         query: PROJECT_BY_NAME, variables: { name: this.props.project.name }
       }

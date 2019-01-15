@@ -62,7 +62,7 @@ class ProjectModal extends Component<Props, State> {
 
   refetchQueries = () => {
     return [
-      { query: PROJECT_LIST, variables: { limit: 10, offset: 0 } }
+      { query: PROJECT_LIST, variables: { limit: 100, offset: 0 } }
     ]
   }
 

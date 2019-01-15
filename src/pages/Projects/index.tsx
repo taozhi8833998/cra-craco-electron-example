@@ -19,7 +19,7 @@ class Projects extends Component<Props, {}> {
     return <StoreConsumer>
       {
         (context: ContextStore) => {
-          return <Query query={PROJECT_LIST} variables={{ limit: 10, offset: 0 }}>
+          return <Query query={PROJECT_LIST} variables={{ limit: 100, offset: 0 }}>
             {
               ({ loading, data, error }) => {
                 if (loading) return <div className="loading"><Spin size="large" /></div>

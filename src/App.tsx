@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classes from './App.module.css'
 import { ApolloProvider } from 'react-apollo'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter as BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Login from './pages/Login'
 import Layouts from './components/Layout'
 import NotFound from './pages/NotFound'
@@ -51,7 +51,7 @@ const routers = [
     requireAuth: false
   },
   {
-    path: '/home',
+    path: '/',
     key: 'home',
     component: Layouts,
     requireAuth: true

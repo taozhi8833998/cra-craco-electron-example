@@ -52,8 +52,8 @@ class Layouts extends Component<Props, State> {
           <Layout style={{ padding: '0 24px 24px' }}>
             <Content>
               <Switch>
-                <Route path="/home/service" component={Services} />
-                <Route path="/home/project" component={Projects} />
+                <Route path="/service" component={Services} />
+                <Route path="/project" component={Projects} />
               </Switch>
             </Content>
           </Layout>

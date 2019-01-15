@@ -31,7 +31,7 @@ class Login extends Component<Props, {}> {
         })
         store.commonManager.setUserName(name)
         form.resetFields()
-        this.props.history.push('/home')
+        this.props.history.push('/')
       }catch(error) {
         return console.error(`Login Failed = ${error.message}`, 3)
       }

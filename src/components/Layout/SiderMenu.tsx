@@ -20,7 +20,7 @@ const menuList = [
     child: [
       {
         name: "服务管理",
-        key: '/home/service'
+        key: '/service'
       }
     ]
   },
@@ -31,7 +31,7 @@ const menuList = [
     child: [
       {
         name: "项目管理",
-        key: '/home/project'
+        key: '/project'
       }
     ]
   }
