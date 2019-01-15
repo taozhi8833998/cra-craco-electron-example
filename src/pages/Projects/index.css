@@ -3,6 +3,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 30px;
+  justify-content: space-around;
 }
 
 .project {
@@ -10,6 +11,7 @@
   align-items: flex-start;
   justify-content: space-between;
   margin-left: 5px;
+  margin-top: 5px;
 }
 
 .project .project-img {

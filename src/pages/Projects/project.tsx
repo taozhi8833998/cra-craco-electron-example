@@ -186,7 +186,6 @@ class ServiceCom extends PureComponent<Props, State> {
 
   refetchQueries = () => {
     return [
-      { query: PROJECT_LIST, variables: { limit: 100, offset: 0 } },
       {
         query: PROJECT_BY_NAME, variables: { name: this.props.project.name }
       }

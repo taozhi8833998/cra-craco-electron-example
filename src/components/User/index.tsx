@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Icon, Menu, Dropdown } from 'antd'
 import { Mutation } from 'react-apollo'
-import { StoreConsumer, ContextStore } from '../../store'
+import { Store, StoreConsumer, ContextStore } from '../../store'
 import './index.css'
 import { LOGOUT } from '../../queries'
 import { withRouter } from 'react-router-dom'
@@ -12,8 +12,10 @@ interface Props{}
 @(withRouter as any)
 class User extends Component<Props> {
   user: HTMLDivElement | null = null
+  store: Store | null = null
 
   userLogout = (signOut: any) => async () => {
+    if(this.store) this.store.commonManager.setUserName('');
     (this.props as any).history.push('/login')
     await signOut()
   }
