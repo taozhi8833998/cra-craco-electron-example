@@ -4,7 +4,7 @@ import { Icon, Menu, Dropdown } from 'antd'
 import { Mutation } from 'react-apollo'
 import { Store, StoreConsumer, ContextStore } from '../../store'
 import './index.css'
-import { LOGOUT } from '../../queries'
+import { LOGOUT, USRINFO } from '../../queries'
 import { withRouter } from 'react-router-dom'
 
 interface Props{}
@@ -15,9 +15,13 @@ class User extends Component<Props> {
   store: Store | null = null
 
   userLogout = (signOut: any) => async () => {
-    if(this.store) this.store.commonManager.setUserName('');
+    if (this.store) this.store.commonManager.setUserName('');
     (this.props as any).history.push('/login')
-    await signOut()
+    try {
+      await signOut()
+    } catch(err) {
+      console.error('logout error = ', err)
+    }
   }
 
   menuClick = (item: any) => {
@@ -32,10 +36,16 @@ class User extends Component<Props> {
     }
   }
 
+  refetchQueries = () => {
+    return [
+      { query: USRINFO }
+    ]
+  }
+
   render() {
     const menu = <Menu onClick={this.menuClick}>
       <Menu.Item key='user-logout'><Icon type='logout' />
-        <Mutation mutation={LOGOUT}>
+        <Mutation mutation={LOGOUT} refetchQueries={this.refetchQueries}>
         {
             (signOut, { loading }) => <span onClick={this.userLogout(signOut)}>Logout</span>
         }
@@ -46,6 +56,7 @@ class User extends Component<Props> {
       {
         (context: ContextStore) => {
           const userName = context.store.commonManager.getUserName()
+          this.store = context.store
           return <div className={userName && "user" || "userHide"} ref={user => this.user = user}>
             <Dropdown
               overlay={menu}
